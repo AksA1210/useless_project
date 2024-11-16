@@ -74,7 +74,7 @@ For Software:
 ### Project Demo
 
 # Video
-[https://drive.google.com/file/d/1rud9x6Ux8B3r4jPk66y1L0Wi2tkDmTC4/view?usp=drive_link](url)
+https://drive.google.com/file/d/1rud9x6Ux8B3r4jPk66y1L0Wi2tkDmTC4/view?usp=sharing
 
 # Additional Demos
 
