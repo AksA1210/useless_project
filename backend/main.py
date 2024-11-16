@@ -128,6 +128,7 @@
 #             } for book in opposite_books
 #         ],
 #     }
+
 import os
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
@@ -177,7 +178,6 @@ def get_movies(db: Session = Depends(get_db)):
     movies = db.query(Movie).all()  # Fetch all movies from the database
     return movies
 
-# Route to get all books
 @app.get("/books/", response_model=list[BookResponse])
 def get_books(db: Session = Depends(get_db)):
     books = db.query(Book).all()  # Fetch all books from the database
@@ -268,7 +268,8 @@ def get_recommendation(favorite_genres: dict, db: Session = Depends(get_db)):
         ],
     }
 
-# # Only run on local environment (not when deployed on Render)
-# if __name__ == "__main__":
-#     port = int(os.getenv("PORT", 8000))  # Render will set PORT environment variable
-#     uvicorn.run(app, host="0.0.0.0", port=port)
+# Only run on local environment (not when deployed on Render)
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))  # Render will set PORT environment variable
+    uvicorn.run(app, host="0.0.0.0", port=port)  # Listen on all interfaces
+
