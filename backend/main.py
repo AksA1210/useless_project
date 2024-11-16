@@ -140,7 +140,7 @@ app = FastAPI()
 # CORS Middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://antialgorithm-q40p.onrender.com/"],  # Make sure this is correct
+    allow_origins=["https://antialgorithm-q40p.onrender.com/"],  # Adjust with your actual frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -268,9 +268,7 @@ def get_recommendation(favorite_genres: dict, db: Session = Depends(get_db)):
         ],
     }
 
-if __name__ == "__main__":
-    # Get the port from the environment or default to 8000 if not set
-    port = int(os.getenv("PORT", 8000))
-    
-    # Run the FastAPI app on host 0.0.0.0 and the correct port
-    uvicorn.run(app, host="0.0.0.0", port=port)
+# # Only run on local environment (not when deployed on Render)
+# if __name__ == "__main__":
+#     port = int(os.getenv("PORT", 8000))  # Render will set PORT environment variable
+#     uvicorn.run(app, host="0.0.0.0", port=port)
